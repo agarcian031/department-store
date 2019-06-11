@@ -23,6 +23,7 @@ class Api::DepartmentsController < ApplicationController
       render json: @department 
     else
       render json: @department.errors, status: 422 
+    end 
   end
 
   def destroy
