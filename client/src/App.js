@@ -5,6 +5,7 @@ import Home from './components/layout/Home';
 import NoMatch from './components/layout/NoMatch'; 
 import Navbar from './components/layout/Navbar'; 
 import Departments from './components/Departments';
+import DepartmentForm from './components/DepartmentForm'; 
 
 const App = () => (
   <Fragment> 
@@ -13,6 +14,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/departments" component={Departments}/>
+        <Route exact path="/departments/new" component={DepartmentForm}/>
         <Route component={NoMatch} />
       </Switch>
     </Container>

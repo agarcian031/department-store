@@ -23,6 +23,11 @@ const Departments = (props) => {
         <Card.Content>
           <Card.Header textAlign="center">{department.name}</Card.Header>
         </Card.Content>
+        <Card.Content extra>
+          <Button as={Link} to={`/departments/${department.id}`} color='blue' fluid size="tiny">
+            View
+          </Button>
+        </Card.Content>
       </Card>
     ))
   }

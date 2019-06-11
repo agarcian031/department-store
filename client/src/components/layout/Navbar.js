@@ -11,7 +11,7 @@ const Navbar = () => (
     </Link>
     <Link to="/departments">
       <Menu.Item>
-        Department
+        Departments
       </Menu.Item>
     </Link>
   </Menu>
