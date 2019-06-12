@@ -15,6 +15,16 @@ const ProductList = (props) => {
     });
   }, []); 
 
+  //  Delete Product 
+  const deleteProduct = (id) => {
+    // const id = props.match.params.department_id
+    const department_id = props.department_id
+    axios.delete(`/api/departments/${department_id}/products/${id}`)
+    .then(res=>{
+     setProducts(products.filter( p => p.id !== id))
+    });
+  }
+
 
  const renderProducts = () => {
     if (products.length <= 0)
@@ -30,6 +40,14 @@ const ProductList = (props) => {
         </Card.Description>
         <Card.Content extra>
           <p>${product.price}</p>
+          <Button.Group size="tiny" floated="right"> 
+          <Button icon onClick={() => deleteProduct(product.id)}>
+            <Icon name="pencil"/>
+          </Button>
+          <Button icon color="red" onClick={() => deleteProduct(product.id)}>
+            <Icon name="trash"/>
+          </Button>
+          </Button.Group>
         </Card.Content>
       </Card>
     ))
