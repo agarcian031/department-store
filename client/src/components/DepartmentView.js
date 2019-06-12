@@ -30,7 +30,9 @@ export class DepartmentView extends Component {
           <ProductList department_id={id} />
           <br />
           <br />
-          <Button onClick={this.props.history.goBack}>Back</Button>
+          {/* FIXME  - Button goes back to form after item is created */}
+          {/* FIXED  - used push instead of goBack */}
+          <Button onClick={() => this.props.history.push("/departments")}>Back</Button>
         </Segment>
       </div>
     );

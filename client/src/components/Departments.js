@@ -16,6 +16,7 @@ const Departments = (props) => {
 
 
   // FIXME - will delete the item and the product only if refreshed 
+  // FIXED = passing in id in `` caused the id to be read as a string
   const deleteDepartment = (id) => {
     // const id = props.match.params.department_id
     axios.delete(`/api/departments/${id}`)
