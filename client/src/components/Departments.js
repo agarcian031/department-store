@@ -14,6 +14,22 @@ const Departments = (props) => {
     });
   }, []); 
 
+  // FIXME - if I take out the () => to call the method in the props, then it automatically deletes the database, but it will not delete it any other way. 
+  const deleteDepartment = (id) => {
+    // const id = props.match.params.department_id
+    axios.delete(`/api/departments/${id}`)
+    .then(res=>{
+     setDepartments({ departments: departments.filter( dep => dep.id !== id)})
+    })
+  }
+
+  // const deleteDepartment = ((departments) => {
+  //   const id = this.props.match.params.department_id
+  //   axios.delete(`/api/departments/${id}`)
+  //   .then(res=>{
+  //    setDepartments({ departments: departments.filter( dep => dep.id !== id)})
+  //   })
+  // })
 
  const renderDepartments = () => {
     if (departments.length <= 0)
@@ -24,9 +40,14 @@ const Departments = (props) => {
           <Card.Header textAlign="center">{department.name}</Card.Header>
         </Card.Content>
         <Card.Content extra>
-          <Button as={Link} to={`/departments/${department.id}`} color='blue' fluid size="tiny">
+          <Button.Group size="tiny" fluid>
+          <Button as={Link} to={`/departments/${department.id}`} color='blue' size="tiny">
             View
           </Button>
+          <Button icon color="red">
+            <Icon name="trash" onClick={() => deleteDepartment(`${department.id}`)}/> Delete
+          </Button>
+          </Button.Group>
         </Card.Content>
       </Card>
     ))
