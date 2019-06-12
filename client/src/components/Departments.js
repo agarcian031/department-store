@@ -19,18 +19,13 @@ const Departments = (props) => {
     // const id = props.match.params.department_id
     axios.delete(`/api/departments/${id}`)
     .then(res=>{
-     setDepartments({ departments: departments.filter( dep => dep.id !== id)})
+      // Error -> created a new departments array 
+    //  setDepartments({ departments: departments.filter( dep => dep.id !== id)})
+     setDepartments(departments.filter( dep => dep.id !== id))
+    //  props.history.push("/departments")
     });
     // renderDepartments(); 
   }
-
-  // const deleteDepartment = ((departments) => {
-  //   const id = this.props.match.params.department_id
-  //   axios.delete(`/api/departments/${id}`)
-  //   .then(res=>{
-  //    setDepartments({ departments: departments.filter( dep => dep.id !== id)})
-  //   })
-  // })
 
  const renderDepartments = () => {
     if (departments.length <= 0)
