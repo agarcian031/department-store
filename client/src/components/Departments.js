@@ -14,6 +14,7 @@ const Departments = (props) => {
     });
   }, []); 
 
+
   // FIXME - will delete the item and the product only if refreshed 
   const deleteDepartment = (id) => {
     // const id = props.match.params.department_id
@@ -22,9 +23,7 @@ const Departments = (props) => {
       // Error -> created a new departments array 
     //  setDepartments({ departments: departments.filter( dep => dep.id !== id)})
      setDepartments(departments.filter( dep => dep.id !== id))
-    //  props.history.push("/departments")
     });
-    // renderDepartments(); 
   }
 
  const renderDepartments = () => {
@@ -40,7 +39,7 @@ const Departments = (props) => {
           <Button as={Link} to={`/departments/${department.id}`} color='blue' size="tiny">
             View
           </Button>
-          <Button icon color="red" onClick={() => deleteDepartment(`${department.id}`)}>
+          <Button icon color="red" onClick={() => deleteDepartment(department.id)}>
             <Icon name="trash"/> Delete
           </Button>
           </Button.Group>

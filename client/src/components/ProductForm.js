@@ -18,7 +18,7 @@ export class ProductForm extends Component {
     e.preventDefault()
     axios.post(`/api/departments/${id}/products`,{ ...this.state, })
       .then(res=>{
-       this.props.history.push(`/departments/${id}/`)
+       this.props.history.push(`/departments/${id}`)
       })
     // TODO: Make api Post request
     this.setState({...this.defaultValues})
