@@ -26,7 +26,7 @@ export class DepartmentView extends Component {
     return (
       <div>
         <Segment raised>
-          <Header as="h1">{this.state.department.name}</Header>
+          <Header as="h1" textAlign="center">{this.state.department.name}</Header>
           <Divider/>
           <ProductList department_id={id}/>
           <br/>

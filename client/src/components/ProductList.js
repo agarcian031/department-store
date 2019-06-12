@@ -29,7 +29,7 @@ const ProductList = (props) => {
               {product.description}
         </Card.Description>
         <Card.Content extra>
-          <p>{product.price}</p>
+          <p>${product.price}</p>
         </Card.Content>
       </Card>
     ))
@@ -38,7 +38,7 @@ const ProductList = (props) => {
 
   return (
     <div>
-      <Header as="h1" textAlign="center">Products Available:</Header>
+      <Header as="h3" textAlign="center">Products Available:</Header>
       <Divider/>
       <br/>
       <Button as={Link} to={`/departments/${props.department_id}/products/new`} icon size="tiny" color="blue"> 
