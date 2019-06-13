@@ -9,14 +9,30 @@ export class DepartmentForm extends Component {
 
   state = {...this.defaultValues}
 
+  //   editProduct = (product_id, name, description, price) => {
+//     const { id } = this.props.match.params;
+//     axios.put(`/api/departments/${id}/products/${product_id}`, { product_id, name, description, price })
+//         .then(res => {
+//             const products = this.state.products.map(p => {
+//                 if (p.id === product_id)
+//                     return res.data;
+//                 return p;
+//             });
+//             this.setState({
+//                 products,
+//                 editing: false
+//             })
+//         })
+// }
 
   handleSubmit = (e) => {
     e.preventDefault(); 
-    axios.post("/api/departments", {...this.state,})
-    .then(res => {
-      this.props.history.push("/departments")
-    })
-    this.setState({...this.defaultValues, });
+    debugger
+    // axios.post("/api/departments", {...this.state,})
+    // .then(res => {
+    //   this.props.history.push("/departments")
+    // })
+    // this.setState({...this.defaultValues, });
   };
 
 

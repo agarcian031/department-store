@@ -5,6 +5,7 @@ import {Card, Header, Divider, Button, Icon} from 'semantic-ui-react';
 
 const Departments = (props) => {
   const [departments, setDepartments] = useState([]); 
+  // const [editing, setEditing] = useState([false]); 
 
 
   useEffect( () => { 
@@ -27,6 +28,15 @@ const Departments = (props) => {
     });
   }
 
+  // const toggleEdit = () => {
+  //   setEditing(!editing)
+  //   console.log({editing}); 
+  // }
+
+
+
+
+
  const renderDepartments = () => {
     if (departments.length <= 0)
       return <Header as="h3" textAlign="center">No Departments Listed</Header>
@@ -39,6 +49,10 @@ const Departments = (props) => {
           <Button.Group size="tiny" fluid>
           <Button as={Link} to={`/departments/${department.id}`} color='blue' size="tiny">
             View
+          </Button>
+          <Button icon as={Link} to={`/departments/edit`}>
+          {/* <Button icon onClick={() => toggleEdit()}> */}
+            <Icon name="pencil"/> Edit 
           </Button>
           <Button icon color="red" onClick={() => deleteDepartment(department.id)}>
             <Icon name="trash"/> Delete
