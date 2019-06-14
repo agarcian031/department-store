@@ -10,13 +10,28 @@ export class DepartmentForm extends Component {
   state = {...this.defaultValues}
 
 
+  componentDidMount = () => {
+    if (this.props.department) {
+      this.setState({
+        name: this.props.department.name,
+      });
+    }
+  };
+
   handleSubmit = (e) => {
     e.preventDefault(); 
-    axios.post("/api/departments", {...this.state,})
-    .then(res => {
-      this.props.history.push("/departments")
-    })
-    this.setState({...this.defaultValues, });
+    const {department} = {...this.state}; 
+    if (this.props.department) {
+      axios.put(`/api/departments/${this.props.department.id}`, department)
+      this.props.toggleEdit(); 
+      this.props.updateState(this.state.name)
+    } else {
+      axios.post("/api/departments", {...this.state,})
+      .then(res => {
+        this.props.history.push("/departments")
+      })
+      this.setState({...this.defaultValues, });
+    }
   };
 
 
@@ -25,9 +40,15 @@ export class DepartmentForm extends Component {
   };
 
   render() {
+    const {name} = this.state
     return (
       <div>
-        <Header as="h1" textAlign="center">New Department</Header>
+        {
+          this.props.toggleEdit ? 
+          <Header as="h1" textAlign="center">Edit Department</Header>
+          :
+          <Header as="h1" textAlign="center">New Department</Header>
+        }
         <Form onSubmit={this.handleSubmit}>
           <Form.Input
            label="Department Name:"

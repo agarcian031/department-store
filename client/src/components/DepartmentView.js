@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ProductList from "./ProductList";
-import { Button, Header, Segment, Divider } from "semantic-ui-react";
-
+import { Button, Header, Segment, Divider, Icon } from "semantic-ui-react";
+import DepartmentForm from './DepartmentForm'
 export class DepartmentView extends Component {
   state = {
-    department: {}
+    department: {},
+    editing: false
   };
 
   componentDidMount() {
@@ -15,6 +16,20 @@ export class DepartmentView extends Component {
     });
   }
 
+  toggleEdit = () => {
+    // will just take editing and give it the value of the opposite of what it currently is.
+    this.setState({ editing: !this.state.editing });
+  };
+
+  updateState = (name) => {
+    this.setState({
+      department: {
+        ...this.state.department,
+        name: name,
+      }
+    });
+  };
+
   render() {
     // const {name} = this.state.department
     const { products } = this.state;
@@ -23,9 +38,17 @@ export class DepartmentView extends Component {
     return (
       <div>
         <Segment raised>
-          <Header as="h1" textAlign="center">
-            {this.state.department.name}
-          </Header>
+          {this.state.editing ? (
+            <DepartmentForm toggleEdit={this.toggleEdit} department={this.state.department} updateState={this.updateState} />
+          ) : (
+            <Header as="h1" textAlign="center">
+              {this.state.department.name}
+            </Header>
+          )}
+          {/* <Button icon as={Link} to={`/departments/edit`}> */}
+          <Button icon onClick={this.toggleEdit} size="tiny" circular>
+            <Icon name="pencil" />
+          </Button>
           <Divider />
           <ProductList department_id={id} />
           <br />

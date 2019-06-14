@@ -6,7 +6,7 @@ import NoMatch from './components/layout/NoMatch';
 import Navbar from './components/layout/Navbar'; 
 import Departments from './components/Departments';
 import DepartmentForm from './components/DepartmentForm'; 
-import DepartmentEditForm from './components/DepartmentEditForm'; 
+// import DepartmentEditForm from './components/DepartmentEditForm'; 
 import DepartmentView from './components/DepartmentView';
 import ProductForm from './components/ProductForm'; 
 // import ProductList from './components/ProductList';
@@ -19,7 +19,7 @@ const App = () => (
         <Route exact path="/" component={Home}/>
         <Route exact path="/departments" component={Departments}/>
         <Route exact path="/departments/new" component={DepartmentForm}/>
-        <Route exact path="/departments/edit" component={DepartmentEditForm}/>
+        {/* <Route exact path="/departments/edit" component={DepartmentEditForm}/> */}
         <Route exact path="/departments/:id" component={DepartmentView} />
         {/* <Route exact path="/departments/:department_id/products" component={ProductList} /> */}
         <Route exact path="/departments/:department_id/products/new" component={ProductForm} />
