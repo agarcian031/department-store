@@ -20,10 +20,10 @@ class Api::DepartmentsController < ApplicationController
 
   def update
     if @department.update(department_params)
-      render json: @department 
+      render json: @department
     else
-      render json: @department.errors, status: 422 
-    end 
+      render json: @department.errors, status: 422
+    end
   end
 
   def destroy
