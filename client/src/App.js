@@ -9,6 +9,7 @@ import DepartmentForm from './components/DepartmentForm';
 // import DepartmentEditForm from './components/DepartmentEditForm'; 
 import DepartmentView from './components/DepartmentView';
 import ProductForm from './components/ProductForm'; 
+// import styled from 'styled-components';
 // import ProductList from './components/ProductList';
 
 const App = () => (
@@ -29,6 +30,8 @@ const App = () => (
   </Fragment>
 )
 
-
+// const ColoredContainer = styled(Container)`
+//   background-color: #333; 
+// `;
 
 export default App;

@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import ProductList from "./ProductList";
 import { Button, Header, Segment, Divider, Icon } from "semantic-ui-react";
-import DepartmentForm from './DepartmentForm'
+import DepartmentForm from './DepartmentForm';
+import HeaderText from './styles/HeaderText'
 export class DepartmentView extends Component {
   state = {
     department: {},
@@ -41,9 +42,9 @@ export class DepartmentView extends Component {
           {this.state.editing ? (
             <DepartmentForm toggleEdit={this.toggleEdit} department={this.state.department} updateState={this.updateState} />
           ) : (
-            <Header as="h1" textAlign="center">
+            <HeaderText as="h1" textAlign="center">
               {this.state.department.name}
-            </Header>
+            </HeaderText>
           )}
           {/* <Button icon as={Link} to={`/departments/edit`}> */}
           <Button icon onClick={this.toggleEdit} size="tiny" circular>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Form, Header } from "semantic-ui-react";
-
+import HeaderText from './styles/HeaderText'
 export class DepartmentForm extends Component {
   defaultValues = {
     name: ""
@@ -42,13 +42,13 @@ export class DepartmentForm extends Component {
     return (
       <div>
         {this.props.toggleEdit ? (
-          <Header as="h1" textAlign="center">
+          <HeaderText  large="true" textAlign="center">
             Edit Department
-          </Header>
+          </HeaderText>
         ) : (
-          <Header as="h1" textAlign="center">
+          <HeaderText as="h1" textAlign="center">
             New Department
-          </Header>
+          </HeaderText>
         )}
         <Form onSubmit={this.handleSubmit}>
           <Form.Input label="Department Name:" name="name" placeholder="Department Name" value={this.state.name} onChange={this.handleChange} required />

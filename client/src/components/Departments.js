@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'; 
 import axios from 'axios'; 
 import {Card, Header, Divider, Button, Icon} from 'semantic-ui-react';
+import HeaderText from "./styles/HeaderText";
+import styled from 'styled-components';
+
 
 const Departments = (props) => {
   const [departments, setDepartments] = useState([]); 
@@ -43,7 +46,7 @@ const Departments = (props) => {
     return departments.map( department => (
       <Card color="blue" key={department.id}>
         <Card.Content>
-          <Card.Header textAlign="center">{department.name}</Card.Header>
+          <HeaderText textAlign="center">{department.name}</HeaderText>
         </Card.Content>
         <Card.Content extra>
           <Button.Group size="tiny" fluid>
@@ -61,8 +64,8 @@ const Departments = (props) => {
 
 
   return (
-    <div>
-      <Header as="h1" textAlign="center">Departments</Header>
+    <DepartmentContainer>
+      <HeaderText as="h1" textAlign="center">Departments</HeaderText>
       <Divider/>
       <br/>
       <Button as={Link} to="/departments/new" icon size="tiny" color="blue"> 
@@ -73,8 +76,14 @@ const Departments = (props) => {
       <Card.Group>
         {renderDepartments()}
       </Card.Group>
-    </div>
+    </DepartmentContainer>
   )
 }
+
+const DepartmentContainer = styled.div`
+  background: whitesmoke; 
+`;
+
+
 
 export default Departments; 
